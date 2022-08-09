@@ -16,6 +16,11 @@ TELEGRAM_TOKEN = os.getenv('token_bot')
 CHAT_ID = os.getenv('chat_id')
 CHAT_ID_LOG = os.getenv('chat_id_log')
 
+options = Options()
+options.add_argument("start-maximized")
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
+
 
 def send_telegram(text: str):
     token = TELEGRAM_TOKEN
@@ -45,11 +50,7 @@ def send_telegram_log(text: str):
 
 def foo():
     send_telegram_log(1)
-    options = webdriver.ChromeOptions()
     send_telegram_log("1-2")
-    send_telegram_log("1-3")
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-    send_telegram_log("1-4")
     send_telegram_log("1-5")
     driver.get('https://www.visametric.com/Kaliningrad/Germany/ru/p/zapis-na-podachu')
     send_telegram_log("1-6")
