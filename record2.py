@@ -93,7 +93,7 @@ def foo():
         next_date = dt.date.today() + dt.timedelta(days=i)
         date = driver.find_element(By.ID, 'input-187')
         date.send_keys(next_date.strftime(format_date))
-        time.sleep(5)
+        time.sleep(12)
         info = driver.find_element(By.CLASS_NAME, 'v-alert__wrapper')
         if "Нет доступной даты" in info.text:
             print(f"{next_date} - {info.text}")
