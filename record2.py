@@ -49,7 +49,7 @@ def foo():
     send_telegram_log("1-2")
     options.add_argument('--headless')
     send_telegram_log("1-3")
-    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=options)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     send_telegram_log("1-4")
     driver.maximize_window()
     send_telegram_log("1-5")
