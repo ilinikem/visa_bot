@@ -44,6 +44,7 @@ def send_telegram_log(text: str):
 
 
 def foo():
+    send_telegram_log(1)
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
@@ -54,7 +55,7 @@ def foo():
     driver.implicitly_wait(10)
     driver.find_element("xpath", '/html/body/div[3]/div[2]/div/div/main/div/div/div/p[14]/a').click()
     driver.implicitly_wait(10)
-
+    send_telegram_log(2)
     time.sleep(10)
     window_before = driver.window_handles[0]
 
@@ -69,6 +70,7 @@ def foo():
     driver.find_elements(By.CLASS_NAME, 'v-input--selection-controls__ripple')[0].click()
     driver.implicitly_wait(10)
     time.sleep(2)
+    send_telegram_log(3)
     driver.find_elements(By.CLASS_NAME, 'v-input--selection-controls__ripple')[1].click()
     driver.implicitly_wait(10)
     time.sleep(2)
@@ -88,8 +90,9 @@ def foo():
     driver.implicitly_wait(10)
     time.sleep(2)
     format_date = "%d%m%Y"
-
+    send_telegram_log(4)
     for i in range(20, 160, 15):
+        send_telegram_log(5)
         next_date = dt.date.today() + dt.timedelta(days=i)
         date = driver.find_element(By.ID, 'input-187')
         date.send_keys(next_date.strftime(format_date))
