@@ -16,7 +16,7 @@ TELEGRAM_TOKEN = os.getenv('token_bot')
 CHAT_ID = os.getenv('chat_id')
 CHAT_ID_LOG = os.getenv('chat_id_log')
 
-options = Options()
+options = webdriver.ChromeOptions()
 options.add_argument("start-maximized")
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
