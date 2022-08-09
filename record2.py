@@ -51,7 +51,6 @@ def foo():
     send_telegram_log("1-3")
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     send_telegram_log("1-4")
-    driver.maximize_window()
     send_telegram_log("1-5")
     driver.get('https://www.visametric.com/Kaliningrad/Germany/ru/p/zapis-na-podachu')
     send_telegram_log("1-6")
