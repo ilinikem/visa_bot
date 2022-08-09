@@ -22,7 +22,3 @@ typing_extensions==4.3.0
 urllib3==1.26.11
 webdriver-manager==3.8.3
 wsproto==1.1.0
-libglib2.0-0==2.50.3-2 \
-libnss3==2:3.26.2-1.1+deb9u1 \
-libgconf-2-4==3.2.6-4+b1 \
-libfontconfig1==2.11.0-6.7+b1
