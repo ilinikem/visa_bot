@@ -11,7 +11,6 @@ import requests
 import os
 from dotenv import load_dotenv
 
-
 load_dotenv()
 TELEGRAM_TOKEN = os.getenv('token_bot')
 CHAT_ID = os.getenv('chat_id')
@@ -48,14 +47,17 @@ def foo():
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver.maximize_window()
     driver.get('https://www.visametric.com/Kaliningrad/Germany/ru/p/zapis-na-podachu')
     driver.implicitly_wait(10)
     driver.find_element("xpath", '/html/body/div[7]/div/div/a').click()
     driver.implicitly_wait(10)
     driver.find_element("xpath", '/html/body/div[3]/div[2]/div/div/main/div/div/div/p[14]/a').click()
     driver.implicitly_wait(10)
+
     time.sleep(10)
     window_before = driver.window_handles[0]
+
     window_after = driver.window_handles[1]
     driver.switch_to.window(window_after)
     driver.find_element(By.ID, 'input-56').click()
@@ -113,9 +115,6 @@ def foo():
 def main():
     while True:
         for x in range(99999999):
-            options = webdriver.ChromeOptions()
-            options.add_argument('--headless')
-            driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
             print(f"-----------Бот запустился {x+1} раз---------------")
             send_telegram_log(f"-----------Бот запустился {x+1} раз---------------")
             try:
